@@ -30,7 +30,7 @@ class webHookUtil:
             if result:
                 print("容器删除成功")
 
-            imageRun = f"docker run -p 8082:8082 --name {image_name} -v /data/{image_name}File/:/data/{image_name}File/  -d {imagesUrl}"
+            imageRun = f"docker run -p 8082:8082 --name {image_name} -v /data/{image_name}File/:/data/{image_name}File/ -e TZ=Asia/Shanghai -d {imagesUrl}"
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             # 容器启动
             result = self.execute_docker_command(imageRun)
